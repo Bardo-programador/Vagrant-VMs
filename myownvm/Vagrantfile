@@ -1,0 +1,14 @@
+Vagrant.configure("2") do |config|
+  # Box base
+  config.vm.box = "ubuntu/jammy64"
+
+  # Configuração de rede: bridge
+  #config.vm.network "public_network", bridge: "wlp1s0" # ajuste o nome do adaptador conforme seu host
+  config.vm.network "private_network", ip: "192.168.56.22" 
+  # Configuração do provider VirtualBox
+  config.vm.provider "virtualbox" do |vb|
+    vb.name = "ubuntu-jammy-bridge"
+    vb.memory = 1024
+    vb.cpus = 2
+  end
+end
